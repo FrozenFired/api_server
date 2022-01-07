@@ -1,10 +1,11 @@
 Shop: {type: ObjectId, ref: 'Shop'},
+
 Client: {type: ObjectId, ref: 'Client'},			// [只读 权限 Client只读]
+type_Order: Number, 								// [post写(Client[-1]) put只读] enum: [1, -1] 采购 销售
+Supplier: {type: ObjectId, ref: 'Shop'},			// 供应商
 
 status: Number,										// enum: ConfOrder;
 is_hide_client: {type: Boolean, default: false}, 	// 客户是否可见, 客户删除状态下， 商家可删除
-
-type_Order: Number, 								// [post写(Client[-1]) put只读] enum: [1, -1] 采购 销售
 
 note_Client: String,
 
@@ -58,31 +59,32 @@ log_info: {				// 第三方物流公司的信息, 如果物流出现问题 方�
 	phone: String,
 },
 
-goods_quantity: {type:Number, default: 0},			// [只读 相对 OrderProds] 	采购本条目总数
-goods_regular: {type: Float, default: 0},			// [只读 相对 OrderProds]		货物原价
-goods_sale: {type: Float, default: 0},				// [只读 相对 OrderProds]		货物费用
-goods_discount: {type: Float, default: 0},			// [只读 绝对]	货物折扣价格
+goods_quantity: {type:Number, default: 0},			// [只读 OrderProds] 	采购本条目总数
 
-percent_minus: {type: Float, default: 0},			// [只读 相对 Client.VIP] 	根据VIP折扣 0 <= percent_minus < 1
-// Cupon: {type: ObjectId, ref: 'Cupon'},			
-// Cupon_price: {type: Float, default: 0},			// [只读 相对 Cupon] 	活动
+goods_regular: {type: Float, default: 0},			// [只读 OrderProds]		货物原价
+goods_sale: {type: Float, default: 0},				// [只读 OrderProds]		货物费用
+
+// Cupons: [{type: ObjectId, ref: 'Cupon'}],			
+goods_price: {type: Float, default: 0},				// [只读 前台接收或Cupon的 单价]	货物最终费用
+// Cupon_price: {type: Float, default: 0},			// [只读 Cupon] 	活动
 
 
-order_sale: {type: Float, default: 0},				// [只读 绝对]	货物减价后 再订单折扣 (goods_sale - cupon) * （ 1 - percent_minus);
-
-ship_regular: {type: Float, default: 0},			// [只读 相对 Shop.ship_price]
+ship_regular: {type: Float, default: 0},			// [只读 Shop.ship_regular]
+ship_discount: {type: Float, default: 0},			// 前台接收
 ship_sale: {type: Float, default: 0},				// [只读 绝对] 	运费 ship_regular - ship_discount (满减 一部分运费)
 
-order_regular: {type: Float, default: 0},			// [只读 绝对]	未减价之前的金额
+price_regular: {type: Float, default: 0},			// [只读 绝对] <goods_regular> + <ship_regular>
+price_sale: {type: Float, default: 0},				// [只读 绝对] <goods_sale> + <ship_sale>
+price_imp: {type: Float, default: 0},				// 前台接收的订单价格
 
-order_price: {type: Float, default: 0},				// [只读 绝对]	订单金额 = order_sale + ship_sale
+is_regular: Boolean,								// [只读 绝对] 	是否符合regular
+is_sale: Boolean,									// [只读 绝对] 	是否符合sale
+is_path: {type: Boolean, default: false},
 
-price_imp: {type: Float, default: 0},				//	客户应付金额
-price_paid: {type: Float, default: 0},				//	客户已付金额
-price_noPay: {type: Float, default: 0},				// [只读 绝对] 	客户未付金额
+price_paid: {type: Float, default: 0},				// 已付金额 如果没有填写 则与price_imp相同
+price_noPay: {type: Float, default: 0},				// [只读 绝对] 	未付金额
 
-is_paid: {type:Boolean, default: false},			// [只读 绝对] 	如果客户已付金额与应付金额相同 则为 true
-is_identical: Boolean,								// [只读 绝对] 	如果客户应付金额与订单总额相同 则为 true
+is_paid: {type:Boolean, default: false},			// [只读 绝对] 	如果已付金额与应付金额相同 则为 true
 
 OrderProds: [{type: ObjectId, ref: 'OrderProd'}],
 
