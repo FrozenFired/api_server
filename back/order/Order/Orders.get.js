@@ -38,6 +38,7 @@ args = {
 	excludes: {required: false, type: Array[ObjectID], default: null, description: "查找出去此数组中所有IDs之外的订单", },
 	includes: {required: false, type: Array[ObjectID], default: null, description: "查找包含所有此数组中所有IDs的订单", },
 
+	type_Order: {required: false, type: Number, default: -1, description: "订单类型"}, //只有 [1, -1], 1 为采购订单 -1为销售订单
 	status: {required: false, type: Array[Number], default: null, description: "查找包含所有此状态的订单", },
 	gte_price: {required: false, type: Float, description: "给出一个价格值, 搜索大于等于此值的订单"},
 	lte_price: {required: false, type: Float, description: "给出一个价格值, 搜索小于等于此值的订单"},

@@ -6,10 +6,12 @@ formData = {
 	"obj": {
 		OrderProds: [{
 			Prod: {required: true, type: ObjectId, description: "订单中的商品"},
-			quantity: {required: false, type: Number, description: "采购数量"},	// 如果是单品
+			quantity: {required: false, type: Number, description: "商品数量"},	// 如果是单品
+			price: {required: true, type: Number, description: "商品单价"},	// 
 			OrderSkus: [{														// 如果是多规格
 				Sku: {required: true, type: ObjectId, description: "订单中 商品 下的 Sku"},
-				quantity: {required: true, type: Number, description: "采购数量"},
+				quantity: {required: true, type: Number, description: "商品数量"},
+				price: {required: true, type: Number, description: "商品单价"},	// 如果是采购
 			}]
 		}],
 		Client: {required: false, type: ObjectId, description: "客户" },
