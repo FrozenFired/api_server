@@ -68,20 +68,19 @@ goods_sale: {type: Float, default: 0},				// [只读 OrderProds]		货物费用
 goods_price: {type: Float, default: 0},				// [只读 前台接收或Cupon的 单价]	货物最终费用
 // Cupon_price: {type: Float, default: 0},			// [只读 Cupon] 	活动
 
-
 ship_regular: {type: Float, default: 0},			// [只读 Shop.ship_regular]
 ship_discount: {type: Float, default: 0},			// 前台接收
 ship_sale: {type: Float, default: 0},				// [只读 绝对] 	运费 ship_regular - ship_discount (满减 一部分运费)
 
-price_regular: {type: Float, default: 0},			// [只读 绝对] <goods_regular> + <ship_regular>
-price_sale: {type: Float, default: 0},				// [只读 绝对] <goods_sale> + <ship_sale>
-price_imp: {type: Float, default: 0},				// 前台接收的订单价格
+order_regular: {type: Float, default: 0},			// [只读 绝对] <goods_regular> + <ship_regular>
+order_sale: {type: Float, default: 0},				// [只读 绝对] <goods_sale> + <ship_sale>
+order_imp: {type: Float, default: 0},				// 前台接收的订单价格
 
 is_regular: Boolean,								// [只读 绝对] 	是否符合regular
 is_sale: Boolean,									// [只读 绝对] 	是否符合sale
-is_path: {type: Boolean, default: false},
+is_pass: {type: Boolean, default: false},
 
-price_paid: {type: Float, default: 0},				// 已付金额 如果没有填写 则与price_imp相同
+price_paid: {type: Float, default: 0},				// 已付金额 如果没有填写 则与order_imp相同
 price_noPay: {type: Float, default: 0},				// [只读 绝对] 	未付金额
 
 is_paid: {type:Boolean, default: false},			// [只读 绝对] 	如果已付金额与应付金额相同 则为 true
