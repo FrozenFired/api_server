@@ -4,7 +4,8 @@ method = "PUT";
 
 general = {
 	note_Client: {required: false, type: ObjectId, description: "客户备注"},
-	type_paid: {required: false, type: ObjectId, description: "付款方式"},
+	Paidtype: {required: false, type: ObjectId, description: "支付方式"},
+	is_payAfter: {required: false,  type: Boolean, description: "是否货到付款"},
 }
 paid_info = {
 	Cita: {required: true, type: ObjectId, description: "送达城市"},

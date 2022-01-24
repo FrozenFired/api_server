@@ -13,6 +13,7 @@ formData = {
 				quantity: {required: true, type: Number, description: "采购数量"},
 			}]
 		}],
+		is_payAfter: {required: false,  default: false, type: Boolean, description: "是否货到付款"},
 		type_ship: {required: true, type: Number, description: "配送方式"},
 		ship_info: {
 			Cita_code: {required: true, type: ObjectId, description: "运送城市的 code"},

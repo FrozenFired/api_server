@@ -21,7 +21,8 @@ note_Dver: String,
 code: String,										// 只读 产品名称
 // path_crt: Number,								// enum: [1: 'online', 2: 'shop']
 
-type_paid: Number, // enum: ConfOrder,
+is_payAfter: {type: Boolean, default: false},		// 是否货到付款
+Paidtype: {type: ObjectId, ref: "Paidtype"},		// 支付方式
 paid_info: {
 	firstname: String,
 	lastname: String,

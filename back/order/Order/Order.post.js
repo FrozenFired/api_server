@@ -15,9 +15,10 @@ formData = {
 			}]
 		}],
 		Client: {required: false, type: ObjectId, description: "客户" },
-		type_paid: {required: false, type: Number, description: "配送方式"},
 		order_imp: {required: false, type: Float, description: "客户应付金额"},
 		price_paid: {required: false, type: Float, description: "客户付款金额"},
+		is_payAfter: {required: false,  default: false, type: Boolean, description: "是否货到付款"},
+		Paidtype: {required: false, type: ObjectId, description: "支付方式"},
 	}
 }
 
