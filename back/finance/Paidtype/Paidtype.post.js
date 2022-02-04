@@ -7,11 +7,10 @@ headers = {
 	"authorization": "auth"+" "+accessToken
 }
 
-
 obj = {
 	code: {required: true, type: String, description: "店铺编号, 公司唯一"},
 	nome: {required: true, type: String, description: "店铺名称, 公司唯一"},
-
+	Coin: {required: true, type: ObjectId, description: "币种"},
 	is_cash: {required: false, type: Boolean, default: false, description: "是否为现金支付"},
 }
 

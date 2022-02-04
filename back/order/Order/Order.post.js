@@ -19,6 +19,7 @@ formData = {
 		price_paid: {required: false, type: Float, description: "客户付款金额"},
 		is_payAfter: {required: false,  default: false, type: Boolean, description: "是否货到付款"},
 		Paidtype: {required: false, type: ObjectId, description: "支付方式"},
+		rate: {required: false, type: Float, description: "下单时用的汇率"},
 	}
 }
 
