@@ -14,7 +14,7 @@ obj = {
 	rate: {required: true, type: Float, description: "汇率"},
 
 	symbol: {required: false, type: String, description: "货币符号 ‘￥’ ‘$’ "},
-	is_default: {required: false, type: Boolean, default: false, description: "是否为默认币种"},
+	is_defCoin: {required: false, type: Boolean, default: false, description: "是否为默认币种"},
 }
 
 

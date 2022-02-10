@@ -90,6 +90,7 @@ Paidtype: {type: ObjectId, ref: "Paidtype"},		// 付款方式
 rate: {type: Float, default: 1},					// 汇率
 price_coin: String,									// 货币收费
 symbol: String, 									// 货币符号
+is_defCoin: Boolean,								// 是否是默认币种
 
 OrderProds: [{type: ObjectId, ref: 'OrderProd'}],
 
