@@ -22,7 +22,7 @@ code: String,										// 只读 产品名称
 // path_crt: Number,								// enum: [1: 'online', 2: 'shop']
 
 is_payAfter: {type: Boolean, default: false},		// 是否货到付款
-Paidtype: {type: ObjectId, ref: "Paidtype"},		// 支付方式
+
 paid_info: {
 	firstname: String,
 	lastname: String,
@@ -85,6 +85,11 @@ price_paid: {type: Float, default: 0},				// 已付金额 如果没有填写 则
 price_noPay: {type: Float, default: 0},				// [只读 绝对] 	未付金额
 
 is_paid: {type:Boolean, default: false},			// [只读 绝对] 	如果已付金额与应付金额相同 则为 true
+
+Paidtype: {type: ObjectId, ref: "Paidtype"},		// 付款方式
+rate: {type: Float, default: 1},					// 汇率
+price_coin: String,									// 货币收费
+symbol: String, 									// 货币符号
 
 OrderProds: [{type: ObjectId, ref: 'OrderProd'}],
 
