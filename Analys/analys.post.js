@@ -2,7 +2,8 @@ api = "https://example.com/api/b1/analys";
 method = "POST";
 
 obj: {
-	dbName: {required: true, type: String, description: "所要分析的数据库名称"},
+	key: {required: false, default: i, type: String, description: "分析的名称"},
+	dbName: {required: false, default: "Order", type: String, description: "所要分析的数据库名称"},
 	is_native: {required: false, type: Boolean, description: "前端数据是否为原生"},
 	// aggregates: required: is_native, type: Array, description: "原生 mongodb aggregate",
 	aggregates: [{}],
@@ -30,7 +31,6 @@ obj: {
 		// groupObj: required: !is_interval
 		groupObj: {
 			is_join: {type: false, type: Boolean, default: false, description: "是否要populate"},
-			joinDB: {type: false, type: String, description: "关联数据库"},
 			lookup_as: {type: false, type: Object, description: "映射"},
 			group_fields: {type: false, type: Array, description: "分组后的结果集"}
 		},
