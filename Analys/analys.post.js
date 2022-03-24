@@ -41,9 +41,9 @@ obj: {
 		},
 		// groupObj: required: !is_interval
 		groupObj: {
-			is_join: {type: false, type: Boolean, default: false, description: "是否要populate"},
-			joinDB: {type: false, type: String, description: "关联数据库"},
-			lookup_as: {type: false, type: Object, description: "映射"},
+			// is_join: {type: false, type: Boolean, default: false, description: "是否要populate"},
+			// joinDB: {type: false, type: String, description: "关联数据库"},
+			// lookup_as: {type: false, type: Object, description: "映射"},
 			outputs: {type: false, type: Array, description: "分组后的输出结果集"}
 		},
 		sortObj: {required: false, type: Object(key:排序字段, val: 1/-1), description: "排序"}
